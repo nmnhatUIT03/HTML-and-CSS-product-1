@@ -4,14 +4,71 @@
     <head>
         <title>Meow Finder</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <style>
+
+
+        </style>
     </head>
 
     
     <!-- Phần thân -->
     <body>
-        <h1>Meow Finder</h1>
-        <p>Meow Finder là một trang web giúp bạn tìm kiếm những bức ảnh mèo dễ thương nhất.</p>
-        <img src="https://nhanvietluanvan.com/wp-content/uploads/2023/05/hinh-meo-Tai-Cup-de-thuong-nhat-720x620.jpg" alt="Ảnh mèo dễ thương">
+        <h1>Meow Land</h1>
+        <h2>A place for cat lovers</h2>
+        <section id="Create-cat">
+            <h3>Create A Cat</h3>
+            <form id="Cat-form">
+            <label for="Name" >Name</label> <input type="text" id="name" name="name" required/>
 
+
+            <label for="Stage">Stage</label>
+                <select id="stage" name="Stage" required>
+                <option value="Kitten" >Kitten (Birth to 6 months)</option>
+                <option value="Junior" >Junior (7 months to 2 years)</option>
+                <option value="Adult"  >Adult (3-6 years) </option>
+                <option value="Mature" >Mature (7-10 years) </option>
+                <option value="Senior" >Super Senior (15 years+) </optio>
+                </select>
+
+            <label for="Breed" >Breed</label> <input type="text" id="breed" name="breed" required/>
+            <label for="img-url">Image URL</label>
+            <input type="text" id="img-url" name="img-url" required/>
+            <button type="submit" >Create Cat</button>
+            </form>    
+        </section>
+        
+        <section id="cats">
+        <h3> List of cats</h3>
+        <ul id="catList" class="catList">
+            <l class="cat-item">
+                <a class="cat-item-link" href="#">
+                 <img 
+                     class="cat-item-img"
+                     src="data:image/jpeg;base64,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" alt="Ảnh mèo dễ thương" class="cat-image">
+                        <div class="catInfo">
+                            <h4> Cup </h4>
+                            <p>Stage: Kitten</p>
+                            <p>Breed: British Shorthair</p>
+                        </div>
+                </a>
+            </l>
+
+            <l class="cat-item">
+                <a class="cat-item-link" href="#">
+                    <img
+                        class="cat-item-img"    
+                        src="https://www.thesprucepets.com/thmb/Qt7k6w4eikK9ZDKULTEX7YEaAZs=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-181861505-4e63227ed0a14dc9bfe86848ef54caf3.jpg" alt="Persian Cat"
+                    />
+                    <div class="catInfo">
+                        <h4>Name: Katy</h4>
+                        <p>Stage: Adult</p>
+                        <p>Breed: Persian</p>
+                    </div>
+                </a>
+            </l>
+        </ul>
+    </section>    
+       
     </body>
 </html>
