@@ -69,6 +69,62 @@
             </l>
         </ul>
     </section>    
-       
+       <script>
+        
+document.addEventListener('DOMContentLoaded', function() {
+ 
+  var form = document.getElementById('Cat-form');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Ngăn chặn việc tải lại trang sau khi submit form
+
+    
+    var name = document.getElementById('name').value;
+    var stage = document.getElementById('stage').value;
+    var breed = document.getElementById('breed').value;
+    var imgUrl = document.getElementById('img-url').value;
+
+    var catItem = document.createElement('li');
+    catItem.classList.add('cat-item');
+
+    var catLink = document.createElement('a');
+    catLink.classList.add('cat-item-link');
+    catLink.href = '#';
+
+    var catImage = document.createElement('img');
+    catImage.classList.add('cat-item-img');
+    catImage.src = imgUrl;
+    catImage.alt = 'Ảnh mèo dễ thương';
+
+    var catInfo = document.createElement('div');
+    catInfo.classList.add('catInfo');
+
+    var catName = document.createElement('h4');
+    catName.textContent = name;
+
+    var catStage = document.createElement('p');
+    catStage.textContent = 'Stage: ' + stage;
+
+    var catBreed = document.createElement('p');
+    catBreed.textContent = 'Breed: ' + breed;
+
+    
+    catInfo.appendChild(catStage);
+    catInfo.appendChild(catBreed);
+
+    catLink.appendChild(catImage);
+    catLink.appendChild(catInfo);
+
+    catItem.appendChild(catLink);
+
+    
+    var catList = document.getElementById('catList');
+    catList.appendChild(catItem);
+
+    
+    form.reset();
+  });
+});
+
+       </script>
     </body>
 </html>
